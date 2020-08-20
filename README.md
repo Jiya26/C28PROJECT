@@ -1,1 +1,2 @@
-# C28PROJECT
+# MatterJSBoilerPlate
+MatterJSBoilerPlate
