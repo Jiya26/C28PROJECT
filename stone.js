@@ -1,5 +1,5 @@
 class StoneClass {
-    constructor(x, y) {
+    constructor(x, y,width,height) {
       var options = {
           'restitution':0.5,
           'friction':1,
@@ -7,6 +7,7 @@ class StoneClass {
       }
       this.body = Bodies.circle(x, y, 20, options);
       this.radius = 20;
+      this.image("img/Plucking mangoes/stone.png");
       World.add(world, this.body);
     }
     display(){
@@ -15,7 +16,7 @@ class StoneClass {
       translate(this.body.position.x, this.body.position.y);
       rotate(angle);
       imageMode(CENTER);
-      image(this.image, 0, 0,50,50);
+      image(this.image, 0, 0, this.width, this.height);
       pop();
     }
   }

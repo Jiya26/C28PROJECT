@@ -30,9 +30,7 @@ function setup() {
 	tree.addImage("tree",treeImg);
 	tree.scale = 0.5;
 
-	stone = new Stone(200,600);
-	stone.addImage("stone",stoneImg);
-	stone.scale = 0.5
+	stone = new StoneClass(100,100,10,10);
 
 	Engine.run(engine);
   
