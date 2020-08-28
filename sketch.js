@@ -6,12 +6,12 @@ const Body = Matter.Body;
 var boy,boyImg;
 var tree,treeImg;
 var stone,stoneImg;
+var chain;
 
 function preload()
 {
    boyImg = loadImage("img/Plucking mangoes/boy.png");
    treeImg = loadImage("img/Plucking mangoes/tree.png");
-   stoneImg = loadImage("img/Plucking mangoes/stone.png");
 }
 
 function setup() {
@@ -31,7 +31,9 @@ function setup() {
 	tree.scale = 0.5;
 
 	stone = new StoneClass(100,100,10,10);
-
+	stone.scale = 0.5;
+	
+	chain= new Chain(boy,tree,150,0)
 	Engine.run(engine);
   
 }
@@ -41,6 +43,8 @@ function draw() {
   rectMode(CENTER);
   background(0);
   boy.display();
+  stone.display();
+  chain.display();
   drawSprites();
  
 }
