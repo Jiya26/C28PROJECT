@@ -4,10 +4,12 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint =Matter.Constraint;
+
 var boy,boyImg;
 var tree,treeImg;
 var stone,stoneImg;
 var chain;
+var slingShot;
 
 function preload()
 {
@@ -34,8 +36,9 @@ function setup() {
 	stone = new StoneClass(100,100,10,10);
 	stone.scale = 0.5;
 	
-	chain= new Chain(boy,tree,150,0)
+	chain= new Chain(stone.body,{x:20,y:20});
 	Engine.run(engine);
+	slingShot = new SlingShot(boy.body,{x:150,y:150});
   
 }
 
@@ -46,9 +49,15 @@ function draw() {
   boy.display();
   stone.display();
   chain.display();
+  slingShot.display();
   drawSprites();
  
 }
-
+function mouseDragged() {
+    Matter.Body.setPosition(boy.body,{x:mouseX,y:mouseY})
+}
+function mouseReleased() {
+    slingShot.fly();
+}
 
 
