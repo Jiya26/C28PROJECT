@@ -5,8 +5,8 @@ class StoneClass {
           'friction':1,
           'density':1.5
       }
-      this.body = Bodies.circle(x, y, 20, options);
-      this.radius = 20;
+      this.body = Bodies.circle(x, y, 30, options);
+      this.radius = 30;
       this.image=loadImage("img/Plucking mangoes/stone.png");
       World.add(world, this.body);
     }

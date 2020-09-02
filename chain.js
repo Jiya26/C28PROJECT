@@ -4,7 +4,7 @@ class Chain{
             bodyA: bodyA,
             pointB: pointB,
             stiffness: 0.04,
-            length: 10
+            length: 25
         }
         this.chain = Constraint.create(options);
         World.add(world, this.chain);
@@ -16,6 +16,7 @@ class Chain{
             var pointA = this.chain.bodyA.position;
             var pointB = this.chain.pointB;
             strokeWeight(4);
+            stroke("white")
             line(pointA.x, pointA.y, pointB.x, pointB.y);
         }
         

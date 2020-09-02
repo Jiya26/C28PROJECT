@@ -34,11 +34,10 @@ function setup() {
 	tree.scale = 0.5;
 
 	stone = new StoneClass(100,100,10,10);
-	stone.scale = 0.5;
+	stone.scale = 0.9;
 	
-	chain= new Chain(stone.body,{x:20,y:20});
+	chain= new Chain(stone.body,{x:100,y:550});
 	Engine.run(engine);
-	slingShot = new SlingShot(boy.body,{x:150,y:150});
   
 }
 
@@ -49,15 +48,12 @@ function draw() {
   boy.display();
   stone.display();
   chain.display();
-  slingShot.display();
   drawSprites();
- 
 }
 function mouseDragged() {
-    Matter.Body.setPosition(boy.body,{x:mouseX,y:mouseY})
+    Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY})
 }
 function mouseReleased() {
-    slingShot.fly();
+    chain.fly();
 }
-
 
