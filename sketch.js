@@ -9,7 +9,7 @@ var boy,boyImg;
 var tree,treeImg;
 var stone,stoneImg;
 var chain;
-var mango,mango1,mango2,mango3,mango4;
+var mango,mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9;
 var chain1,chain2,chain3,chain4,chain5;
 
 function preload()
@@ -39,17 +39,17 @@ function setup() {
 	
 	chain= new Chain(stone.body,{x:100,y:550});
 
-	mango = new MangoClass(600,350,50);
-	mango1 = new MangoClass(630,370,50);
-	mango2 = new MangoClass(580,330,50);
-	mango3 = new MangoClass(610,340,50);
-	mango4 = new MangoClass(640,360,50);
+	mango = new MangoClass(450,300,50);
+	mango1 = new MangoClass(765,325,50);
+	mango2 = new MangoClass(520,350,50);
+	mango3 = new MangoClass(725,355,50);
+  mango4 = new MangoClass(550,190,50);
+  mango5 = new MangoClass(575,305,50);
+  mango6 = new MangoClass(600,250,50);
+  mango7 = new MangoClass(675,275,50);
+  mango8 = new MangoClass(650,200,50);
+  mango9 = new MangoClass(700,225,50);
 
-	chain1 = new Chain(mango.body,{x:600,y:350});
-	chain2 = new Chain(mango1.body,{x:630,y:370});
-	chain3 = new Chain(mango2.body,{x:580,y:330});
-	chain4 = new Chain(mango3.body,{x:610,y:340});
-	chain5 = new Chain(mango4.body,{x:640,y:360});
 	Engine.run(engine);
   
 }
@@ -62,17 +62,28 @@ function draw() {
   stone.display();
   chain.display();
  
+  detectollision(stone,mango);
+  detectollision(stone,mango1);
+  detectollision(stone,mango2);
+  detectollision(stone,mango3);
+  detectollision(stone,mango4);
+  detectollision(stone,mango5);
+  detectollision(stone,mango6);
+  detectollision(stone,mango7);
+  detectollision(stone,mango8);
+  detectollision(stone,mango9);
+  
   drawSprites();
   mango.display();	
-  mango2.display();
   mango1.display();
-  mango4.display();
+  mango2.display();
   mango3.display();
-  chain1.display();
-  chain2.display();
-  chain3.display();
-  chain4.display();
-  chain5.display();
+  mango4.display();
+  mango5.display();	
+  mango6.display();	
+  mango7.display();	
+  mango8.display();	
+  mango9.display();	
 
 }
 function mouseDragged() {
@@ -82,3 +93,12 @@ function mouseReleased() {
     chain.fly();
 }
 
+function detectollision(lstone,lmango){
+  sBodyPosition = lstone.body.position
+  mBodyPosition = lmango.body.position
+
+  var distance = dist(sBodyPosition.x,sBodyPosition.y,mBodyPosition.x,mBodyPosition.y)
+  if(distance<=lstone.radius+lmango.radius){
+    Matter.Body.setStatic(lmango.body,false);
+  }
+}
