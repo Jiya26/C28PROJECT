@@ -102,3 +102,9 @@ function detectollision(lstone,lmango){
     Matter.Body.setStatic(lmango.body,false);
   }
 }
+function keyPressed(){
+  if(keyCode===32){
+    Matter.Body.setPosition(stone.body,{x:150,y:120})
+    launcherObject.attach(stone.body);
+  }
+}
