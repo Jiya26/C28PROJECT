@@ -58,6 +58,8 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background(0);
+  fill("white");
+  text("PRESS SPACE FOR SECOND CHANCE",100,50);
   boy.display();
   stone.display();
   chain.display();
@@ -104,7 +106,7 @@ function detectollision(lstone,lmango){
 }
 function keyPressed(){
   if(keyCode===32){
-    Matter.Body.setPosition(stone.body,{x:150,y:120})
-    launcherObject.attach(stone.body);
+    Matter.Body.setPosition(stone.body,{x:100,y:550})
+    chain.attach(stone.body);
   }
 }
